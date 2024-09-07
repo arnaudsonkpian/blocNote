@@ -1,0 +1,30 @@
+<div class="centre" class="container">
+    <h2 class="centre">Note List</h2>
+   
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let note of notes">
+          <td>{{ note.title }}</td>
+          <td>{{ note.content }}</td>
+          <td>{{ note.category.name || 'No Category' }}</td>
+          <td>
+            <a [routerLink]="['/notes', note.id]" class="btn btn-warning btn-sm">Edit</a>
+            <button (click)="delete(note.id!)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="centre">
+
+        <a routerLink="/notes/new"  class="btn btn-primary mb-3">Ajouter une note</a>
+    </div>
+  </div>
+  
